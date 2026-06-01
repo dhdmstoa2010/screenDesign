@@ -71,7 +71,7 @@ function SearchBar() {
             {open && (
                 <Dropdown>
                     {results.length === 0 ? (
-                        <NoResult>검색 결과가 없어요 😢</NoResult>
+                        <NoResult>검색 결과가 없습니다.</NoResult>
                     ) : (
                         results.map((item, i) => (
                             <ResultItem key={i} onClick={() => handleSelect(item.path)}>
