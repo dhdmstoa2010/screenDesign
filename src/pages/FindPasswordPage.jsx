@@ -11,7 +11,7 @@ function FindPasswordPage() {
     };
 
     return (
-        <container>
+        <Wrapper>
             <Box>
                 <Title>비밀번호 찾기</Title>
                 <Desc>가입 시 등록한 이메일을 입력하시면{'\n'}비밀번호 재설정 링크를 보내드려요.</Desc>
@@ -28,7 +28,7 @@ function FindPasswordPage() {
                 </Form>
                 <BackText onClick={() => navigate('/login')}>로그인으로 돌아가기</BackText>
             </Box>
-        </container>
+        </Wrapper>
     );
 }
 
