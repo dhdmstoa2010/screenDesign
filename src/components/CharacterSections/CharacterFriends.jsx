@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-// 친구들 섹션
-// friends(배열 [{image, name, path}])
 function CharacterFriends({ friends = [] }) {
     return (
         <Section>
             <SectionTitle>친구들</SectionTitle>
             <FriendList>
+                {/* friends 배열을 순회하며 특징 카드를 하나씩 렌더링 */}
                 {friends.map((friend, i) => (
                     <FriendCard key={i} to={friend.path}>
                         <FriendImage src={friend.image} alt={friend.name} />
@@ -21,8 +20,6 @@ function CharacterFriends({ friends = [] }) {
 
 export default CharacterFriends;
 
-// 스타일 지정
-
 const Section = styled.section`
     width: 85%;
     max-width: 1100px;
@@ -33,7 +30,7 @@ const SectionTitle = styled.h2`
     font-family: 'OngleipParkDahyeon';
     font-size: 36px;
     margin: 0 0 30px;
-    color: black;
+    color: ${p => p.theme.text};
     border-left: 6px solid #ffb6c1;
     padding-left: 16px;
 `;
@@ -50,7 +47,7 @@ const FriendCard = styled(Link)`
     align-items: center;
     gap: 10px;
     text-decoration: none;
-    color: black;
+    color: ${p => p.theme.text};
     transition: 0.3s;
 
     &:hover {

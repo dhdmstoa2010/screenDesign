@@ -5,16 +5,16 @@ function FindPasswordPage() {
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault(); // 폼 제출시 페이지 새로고침 방지용
         alert('입력하신 이메일로 비밀번호 재설정 링크를 보내드렸습니다.');
-        navigate('/login');
+        navigate('/login'); // 알람 확인 후 로그인 페이지로 이동
     };
 
     return (
         <Wrapper>
             <Box>
                 <Title>비밀번호 찾기</Title>
-                <Desc>가입 시 등록한 이메일을 입력하시면{'\n'}비밀번호 재설정 링크를 보내드려요.</Desc>
+                <Desc>가입 시 등록한 이메일을 입력하면{'\n'}비밀번호 재설정 링크를 보내드립니다.</Desc>
                 <Form onSubmit={handleSubmit}>
                     <InputGroup>
                         <Label>아이디</Label>
@@ -26,7 +26,7 @@ function FindPasswordPage() {
                     </InputGroup>
                     <SubmitButton type="submit">재설정 링크 받기</SubmitButton>
                 </Form>
-                <BackText onClick={() => navigate('/login')}>로그인으로 돌아가기</BackText>
+                <Back onClick={() => navigate(-1)}>로그인으로 돌아가기</Back>
             </Box>
         </Wrapper>
     );
@@ -39,16 +39,18 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 70px);
-    background-color: #FCF8F8;
+    background-color: ${p => p.theme.bg};
+    transition: background-color 0.3s;
 `;
 
 const Box = styled.div`
-    background-color: white;
+    background-color: ${p => p.theme.card};
     border-radius: 20px;
     padding: 50px 60px;
     width: 100%;
     max-width: 420px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s;
 `;
 
 const Title = styled.h2`
@@ -56,13 +58,13 @@ const Title = styled.h2`
     font-size: 36px;
     text-align: center;
     margin: 0 0 14px;
-    color: black;
+    color: ${p => p.theme.text};
 `;
 
 const Desc = styled.p`
     font-family: 'Pretendard', sans-serif;
     font-size: 14px;
-    color: #888;
+    color: ${p => p.theme.mutedText};
     text-align: center;
     white-space: pre-line;
     line-height: 1.7;
@@ -84,18 +86,20 @@ const InputGroup = styled.div`
 const Label = styled.label`
     font-family: 'Pretendard', sans-serif;
     font-size: 14px;
-    color: #555;
+    color: ${p => p.theme.mutedText};
 `;
 
 const Input = styled.input`
     height: 46px;
-    border: 1px solid #ddd;
+    border: 1px solid ${p => p.theme.inputBorder};
     border-radius: 10px;
     padding: 0 14px;
     font-size: 15px;
     font-family: 'Pretendard', sans-serif;
     outline: none;
     transition: 0.2s;
+    background-color: ${p => p.theme.input};
+    color: ${p => p.theme.inputText};
 
     &:focus {
         border-color: #ffb6c1;
@@ -120,15 +124,15 @@ const SubmitButton = styled.button`
     }
 `;
 
-const BackText = styled.p`
+const Back = styled.p`
     font-family: 'Pretendard', sans-serif;
     font-size: 14px;
-    color: #aaa;
+    color: ${p => p.theme.mutedText};
     text-align: center;
     margin-top: 20px;
     cursor: pointer;
 
     &:hover {
-        color: #555;
+        color: ${p => p.theme.subText};
     }
 `;

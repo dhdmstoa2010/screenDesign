@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
 
 // 섹션 컴포넌트
 import CharacterBanner from '../../components/CharacterSections/CharacterBanner';
@@ -18,7 +17,14 @@ import usagiImg from '../../assets/usagi_card.png';
 import rotcoImg from '../../assets/rotco_card.png';
 
 function HachiwarePage() {
-    const navigate = useNavigate();
+
+    const PageWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    `;
+
 
     const bannerData = {
         bg: bannerImg,
@@ -61,7 +67,7 @@ function HachiwarePage() {
             description: "앞머리가 길어서 가르마가 사라져버린 하치와레 \n 귀엽다.",
         },
         {
-            id: 1,
+            id: 2,
             image: sceneImg2,
             description: "헤어볼 토하는 하치와레",
         },
@@ -86,9 +92,3 @@ function HachiwarePage() {
 
 export default HachiwarePage;
 
-const PageWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-`;

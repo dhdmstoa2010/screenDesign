@@ -10,25 +10,26 @@ function SearchBar() {
     const [results, setResults] = useState([]);
     const [open, setOpen] = useState(false);
     const navigate = useNavigate();
-    const wrapperRef = useRef(null);
+    const searchRef = useRef(null); // 검색창 외부 클릭 감지용
 
-    // 검색어 바뀔 때마다 캐릭터 + 굿즈에서 필터링
     const handleChange = (e) => {
         const value = e.target.value;
         setQuery(value);
 
-        if (value.trim() === '') {
+        if (value.trim() === '') { // 앞뒤 공백 삭제 
             setResults([]);
             setOpen(false);
             return;
         }
 
-        const keyword = value.toLowerCase();
+        const keyword = value;
 
+        // 캐릭터 이름 또는 설명에 키워드가 포함된 것 필터링
         const matchedCharacters = characters
             .filter((c) => c.name.includes(keyword) || c.description.includes(keyword))
             .map((c) => ({ ...c, category: '캐릭터' }));
 
+        // 굿즈 이름에 키워드가 포함된 것 필터링    
         const matchedGoods = goods
             .filter((g) => g.name.includes(keyword))
             .map((g) => ({ ...g, category: '굿즈' }));
@@ -37,27 +38,27 @@ function SearchBar() {
         setOpen(true);
     };
 
-    // 결과 클릭 시 해당 페이지로 이동
     const handleSelect = (path) => {
-        navigate(path);
-        setQuery('');
-        setResults([]);
-        setOpen(false);
+        navigate(path); // 해당 페이지 이동
+        setQuery(''); // 검색입력창 초기화
+        setResults([]); // 결과 초기화
+        setOpen(false); // 검색목록 닫음
     };
 
-    // 검색창 바깥 클릭 시 드롭다운 닫기
+    // 검색창 바깥 클릭시 드롭다운 닫음
     useEffect(() => {
         const handleClickOutside = (e) => {
-            if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
+            if (searchRef.current && !searchRef.current.contains(e.target)) {
                 setOpen(false);
             }
         };
+
         document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside); // 컴포넌트 언마운트 시 이벤트 리스너 제거 (메모리 누수 방지)
     }, []);
 
     return (
-        <Wrapper ref={wrapperRef}>
+        <Wrapper ref={searchRef}>
             <SearchBox>
                 <SearchIcon src={searchIcon} alt="검색" />
                 <SearchInput
@@ -68,13 +69,15 @@ function SearchBar() {
                 />
             </SearchBox>
 
+            {/* 드롭다운: 검색어 입력 시에만 표시 */}
             {open && (
                 <Dropdown>
                     {results.length === 0 ? (
                         <NoResult>검색 결과가 없습니다.</NoResult>
                     ) : (
-                        results.map((item, i) => (
-                            <ResultItem key={i} onClick={() => handleSelect(item.path)}>
+                        // 검색 결과를 순회하며 항목 렌더링
+                        results.map((item) => (
+                            <ResultItem key={item.path} onClick={() => handleSelect(item.path)}>
                                 {item.image && <Thumb src={item.image} alt={item.name} />}
                                 <ResultInfo>
                                     <ResultName>{item.name}</ResultName>
@@ -100,10 +103,10 @@ const Wrapper = styled.div`
 const SearchBox = styled.div`
     width: 100%;
     height: 42px;
-    background-color: #f9e8e8;
+    background-color: ${p => p.theme.searchBox};
     border-radius: 25px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    border: 1px solid #d9d9d9;
+    border: 1px solid ${p => p.theme.inputBorder};
     display: flex;
     align-items: center;
     padding: 0 15px;
@@ -112,7 +115,7 @@ const SearchBox = styled.div`
     box-sizing: border-box;
 
     &:hover {
-        background-color: #fdd0d0;
+        background-color: ${p => p.theme.searchBoxHover};
     }
 `;
 
@@ -120,6 +123,8 @@ const SearchIcon = styled.img`
     width: 22px;
     height: 22px;
     flex-shrink: 0;
+    filter: ${p => p.theme.iconFilter};
+    transition: filter 0.3s;
 `;
 
 const SearchInput = styled.input`
@@ -127,9 +132,13 @@ const SearchInput = styled.input`
     background: transparent;
     border: none;
     outline: none;
-    color: black;
+    color: ${p => p.theme.text};
     font-size: 15px;
     font-family: 'Pretendard', sans-serif;
+
+    &::placeholder {
+        color: ${p => p.theme.mutedText};
+    }
 `;
 
 const Dropdown = styled.div`
@@ -137,7 +146,7 @@ const Dropdown = styled.div`
     top: 50px;
     left: 0;
     width: 100%;
-    background-color: white;
+    background-color: ${p => p.theme.card};
     border-radius: 16px;
     box-shadow: 0 8px 28px rgba(0,0,0,0.12);
     overflow: hidden;
@@ -149,7 +158,7 @@ const NoResult = styled.div`
     text-align: center;
     font-family: 'Pretendard', sans-serif;
     font-size: 14px;
-    color: #aaa;
+    color: ${p => p.theme.mutedText};
 `;
 
 const ResultItem = styled.div`
@@ -161,7 +170,7 @@ const ResultItem = styled.div`
     transition: 0.2s;
 
     &:hover {
-        background-color: #fff0f3;
+        background-color: ${p => p.theme.searchBoxHover};
     }
 `;
 
@@ -182,11 +191,11 @@ const ResultInfo = styled.div`
 const ResultName = styled.span`
     font-family: 'OngleipParkDahyeon';
     font-size: 16px;
-    color: black;
+    color: ${p => p.theme.text};
 `;
 
 const CategoryTag = styled.span`
     font-family: 'Pretendard', sans-serif;
     font-size: 12px;
-    color: #aaa;
+    color: ${p => p.theme.mutedText};
 `;

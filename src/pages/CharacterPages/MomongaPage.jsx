@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
 
 // 섹션 컴포넌트
 import CharacterBanner from '../../components/CharacterSections/CharacterBanner';
@@ -11,9 +10,19 @@ import CharacterFriends from '../../components/CharacterSections/CharacterFriend
 import bannerImg from '../../assets/MomongaPageImage.jpg';
 import profileImg from '../../assets/momonga_card.png';
 import sceneImg1 from '../../assets/MomongaBest.jpg';
+import chiikawaImg from '../../assets/chiikawa_card.png';
+import usagiImg from '../../assets/usagi_card.png';
+import rotcoImg from '../../assets/rotco_card.png';
 
 function MomongaPage() {
-    const navigate = useNavigate();
+
+    const PageWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    `;
+
 
     const bannerData = {
         bg: bannerImg,
@@ -76,9 +85,3 @@ function MomongaPage() {
 
 export default MomongaPage;
 
-const PageWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-`;

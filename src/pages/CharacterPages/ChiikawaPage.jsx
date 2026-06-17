@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
 
 // 섹션 컴포넌트
 import CharacterBanner from '../../components/CharacterSections/CharacterBanner';
@@ -19,7 +18,13 @@ import usagiImg from '../../assets/usagi_card.png';
 import rotcoImg from '../../assets/rotco_card.png';
 
 function ChiikawaPage() {
-    const navigate = useNavigate();
+
+    const PageWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    `;
 
     const bannerData = {
         bg: bannerImg,
@@ -92,9 +97,3 @@ function ChiikawaPage() {
 
 export default ChiikawaPage;
 
-const PageWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-`;

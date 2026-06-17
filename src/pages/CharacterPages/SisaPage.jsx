@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
 
 // 섹션 컴포넌트
 import CharacterBanner from '../../components/CharacterSections/CharacterBanner';
@@ -16,7 +15,14 @@ import hachiwareImg from '../../assets/Hachiware_card.png';
 import BammanzuImg from '../../assets/bammanzu_card.png';
 
 function SisaPage() {
-    const navigate = useNavigate();
+
+    const PageWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    `;
+
 
     const bannerData = {
         bg: bannerImg,
@@ -79,9 +85,3 @@ function SisaPage() {
 
 export default SisaPage;
 
-const PageWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-`;

@@ -23,7 +23,7 @@ const PlainButtonStyled = styled.button`
   }
 
   &:hover {
-    background-color: #ff9eb0;
+    background-color: #ffbcc8;
     transform: translateY(-2px);
   }
 `;

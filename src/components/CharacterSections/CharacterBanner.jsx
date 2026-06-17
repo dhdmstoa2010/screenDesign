@@ -17,11 +17,14 @@ export default CharacterBanner;
 const BannerWrapper = styled.section`
     width: 100%;
     height: 500px;
-    background-image: url(${(props) => props.bg}); // props로 받은 이미지 경로를 CSS background-image에 동적으로 넣는 것
+
+    background-image: url(${(props) => props.bg}); /* props로 받은 이미지 경로를 CSS background-image에 넣은 것 */
     background-size: cover;
     background-position: 50% 70%;
+
     display: flex;
     align-items: flex-end;
+    
     padding: 60px 80px 120px;
     box-sizing: border-box;
 `;

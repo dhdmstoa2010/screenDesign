@@ -7,37 +7,23 @@ function CharacterPage() {
   const navigate = useNavigate();
   const character = characters.find((c) => c.id === Number(id));
 
-  // 잘못된 id로 접근했을 때
-  if (!character) {
-    return (
-      <Wrapper>
-        <NotFound>캐릭터를 찾을 수 없습니다</NotFound>
-        <BackButton onClick={() => navigate('/')}>돌아가기</BackButton>
-      </Wrapper>
-    );
-  }
-
   return (
-    <Wrapper>
+    <Container>
       <Card>
         <CharacterImage src={character.image} alt={character.name} />
-        <Info>
+        <Content>
           <Name>{character.name}</Name>
           <Description>{character.description}</Description>
           <BackButton onClick={() => navigate(-1)}>← 돌아가기</BackButton>
-        </Info>
+        </Content>
       </Card>
-    </Wrapper>
+    </Container>
   );
 }
 
 export default CharacterPage;
 
-// ==========================================
-// Styled Components
-// ==========================================
-
-const Wrapper = styled.div`
+const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,12 +36,13 @@ const Card = styled.div`
   display: flex;
   gap: 60px;
   align-items: center;
-  background-color: white;
+  background-color: ${p => p.theme.card};
   border-radius: 30px;
   padding: 60px;
   max-width: 800px;
   width: 100%;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+  transition: background-color 0.3s;
 `;
 
 const CharacterImage = styled.img`
@@ -66,7 +53,7 @@ const CharacterImage = styled.img`
   flex-shrink: 0;
 `;
 
-const Info = styled.div`
+const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -76,23 +63,23 @@ const Name = styled.h1`
   font-family: 'OngleipParkDahyeon';
   font-size: 48px;
   margin: 0;
-  color: black;
+  color: ${p => p.theme.text};
 `;
 
 const Description = styled.p`
   font-family: 'Pretendard', sans-serif;
   font-size: 18px;
-  color: #555;
+  color: ${p => p.theme.subText};
   line-height: 1.8;
   white-space: pre-line;
   margin: 0;
 `;
 
 const BackButton = styled.button`
-  align-self: flex-start;
+  width: fit-content;
   padding: 10px 24px;
   border: none;
-  border-radius: 25px;
+  border-radius: 20px;
   background-color: #ffb6c1;
   color: white;
   font-family: 'OngleipParkDahyeon';
@@ -102,12 +89,5 @@ const BackButton = styled.button`
 
   &:hover {
     background-color: #ff9eb0;
-    transform: translateY(-2px);
   }
-`;
-
-const NotFound = styled.p`
-  font-family: 'OngleipParkDahyeon';
-  font-size: 28px;
-  color: #888;
 `;

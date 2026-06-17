@@ -48,7 +48,7 @@ const CardImage = styled.img`
 
 function CharacterCard({ path, image, name, description }) {
   return (
-    <CardLink to={path}>
+    <CardLink to={path}> {/* 경로 지정 */}
       <Card>
         <CardImage src={image} />
         <h3>{name}</h3>

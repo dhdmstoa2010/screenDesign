@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
 
 // 섹션 컴포넌트
 import CharacterBanner from '../../components/CharacterSections/CharacterBanner';
@@ -15,7 +14,13 @@ import chiikawaImg from '../../assets/chiikawa_card.png';
 import sisaImg from '../../assets/sisa_card.png';
 
 function BammanzuPage() {
-    const navigate = useNavigate();
+
+    const PageWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    `;
 
     const bannerData = {
         bg: bannerImg,
@@ -77,9 +82,3 @@ function BammanzuPage() {
 
 export default BammanzuPage;
 
-const PageWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-`;

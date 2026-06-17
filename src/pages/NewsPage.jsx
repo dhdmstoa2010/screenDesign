@@ -7,20 +7,23 @@ const newsList = [
         date: "2026.05.25",
         title: "먼작귀 & LG TWINS 콜라보",
         description: "프로야구단 LG 트윈스와 먼작귀가 콜라보했습니다!",
+        link: "https://www.ggilbo.com/news/articleView.html?idxno=1149195",
     },
     {
         id: 2,
-        tag: "이벤트",
-        date: "2025.08.1",
-        title: "미니소 치이카와 오픈",
-        description: "서울 홍대와 강남의 미니소에서 치이카와 판매중입니다!",
+        tag: "공지",
+        date: "2025.1.30",
+        title: "치이카와샵 한국 첫 정규 매장 오픈 COMING SOON",
+        description: "치이카와 첫 정규 매장이 오픈됩니다!",
+        link: "https://www.thetrippick.com/news/articleView.html?idxno=2700",
     },
     {
         id: 3,
         tag: "공지",
         date: "2025.11.26",
-        title: "극장판 치이키와:인어섬의 비밀 국내 방영 예정",
-        description: "치이카와 극장판 애니메이션이 국내에서도 방영 예정입니다!",
+        title: "극장판 치이키와:인어섬의 비밀 개봉",
+        description: "치이카와 극장판 애니메이션 개봉!",
+        link: "https://www.eyesmag.com/posts/163054/chiikawachiikawa",
     },
 ];
 
@@ -30,12 +33,13 @@ function NewsPage() {
             <Title>소식</Title>
             <SubTitle>치이카와의 최신 소식을 확인해보세요</SubTitle>
 
+            {/* 소식 목록 순회하며 카드 렌더링 */}
             <NewsList>
                 {newsList.map((news) => (
-                    <NewsCard key={news.id}>
+                    <NewsCard key={news.id} onClick={() => news.link && window.open(news.link, '_blank')}>
                         <CardTop>
                             <Tag>{news.tag}</Tag>
-                            <Date>{news.date}</Date>
+                            <NewsDate>{news.date}</NewsDate>
                         </CardTop>
                         <NewsTitle>{news.title}</NewsTitle>
                         <NewsDesc>{news.description}</NewsDesc>
@@ -61,13 +65,13 @@ const Title = styled.h1`
     font-family: 'OngleipParkDahyeon';
     font-size: 48px;
     margin: 0 0 10px;
-    color: black;
+    color: ${p => p.theme.text};
 `;
 
 const SubTitle = styled.p`
     font-family: 'Pretendard', sans-serif;
     font-size: 16px;
-    color: #888;
+    color: ${p => p.theme.mutedText};
     margin: 0 0 50px;
 `;
 
@@ -80,7 +84,7 @@ const NewsList = styled.div`
 `;
 
 const NewsCard = styled.div`
-    background-color: white;
+    background-color: ${p => p.theme.card};
     border-radius: 20px;
     padding: 28px 32px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -110,23 +114,23 @@ const Tag = styled.span`
     border-radius: 20px;
 `;
 
-const Date = styled.span`
+const NewsDate = styled.span`
     font-family: 'Pretendard', sans-serif;
     font-size: 13px;
-    color: #aaa;
+    color: ${p => p.theme.mutedText};
 `;
 
 const NewsTitle = styled.h3`
     font-family: 'OngleipParkDahyeon';
     font-size: 22px;
     margin: 0 0 10px;
-    color: black;
+    color: ${p => p.theme.text};
 `;
 
 const NewsDesc = styled.p`
     font-family: 'Pretendard', sans-serif;
     font-size: 15px;
-    color: #555;
+    color: ${p => p.theme.subText};
     line-height: 1.7;
     margin: 0;
 `;

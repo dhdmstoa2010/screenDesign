@@ -1,12 +1,42 @@
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+
+function GoodsCard({ id, name, price, tag, image, link }) {
+  const navigate = useNavigate(); // 리액트 라우터 hooks
+
+  return (
+    /* 카드 클릭 시 굿즈 상세 페이지로 이동 */
+    <Card onClick={() => navigate(`/goods/${id}`)}>
+      {tag && <Tag>{tag}</Tag>}
+      <ImageBox>
+        {image && <GoodsImage src={image} alt={name} />}
+      </ImageBox>
+      <CardInfo>
+        <GoodsName>{name}</GoodsName>
+        <Price>{price}</Price>
+        <LookButton
+          onClick={(e) => {
+            e.stopPropagation(); // 카드 클릭 이벤트 전파 막기
+            link && window.open(link, '_blank');
+          }}
+        >
+          보러가기
+        </LookButton>
+      </CardInfo>
+    </Card>
+  );
+}
+
+export default GoodsCard;
 
 const Card = styled.div`
-  background-color: white;
+  background-color: ${p => p.theme.card};
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   transition: 0.3s;
   position: relative;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-6px);
@@ -31,8 +61,9 @@ const Tag = styled.span`
 const ImageBox = styled.div`
   width: 100%;
   aspect-ratio: 1 / 1;
-  background-color: #fef0f0;
+  background-color: ${p => p.theme.imageBox};
   overflow: hidden;
+  transition: background-color 0.3s;
 `;
 
 const GoodsImage = styled.img`
@@ -52,17 +83,17 @@ const GoodsName = styled.p`
   font-family: 'OngleipParkDahyeon';
   font-size: 20px;
   margin: 0;
-  color: black;
+  color: ${p => p.theme.text};
 `;
 
 const Price = styled.p`
   font-family: 'Pretendard', sans-serif;
   font-size: 15px;
-  color: #555;
+  color: ${p => p.theme.subText};
   margin: 0;
 `;
 
-const BuyButton = styled.button`
+const LookButton = styled.button`
   margin-top: 8px;
   height: 40px;
   border: none;
@@ -78,21 +109,3 @@ const BuyButton = styled.button`
     background-color: #ff9eb0;
   }
 `;
-
-function GoodsCard({ name, price, tag, image }) {
-  return (
-    <Card>
-      {tag && <Tag>{tag}</Tag>}
-      <ImageBox>
-        {image && <GoodsImage src={image} alt={name} />}
-      </ImageBox>
-      <CardInfo>
-        <GoodsName>{name}</GoodsName>
-        <Price>{price}</Price>
-        <BuyButton>담기</BuyButton>
-      </CardInfo>
-    </Card>
-  );
-}
-
-export default GoodsCard;

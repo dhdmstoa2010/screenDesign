@@ -46,16 +46,18 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 70px);
-    background-color: #FCF8F8;
+    background-color: ${p => p.theme.bg};
+    transition: background-color 0.3s;
 `;
 
 const Box = styled.div`
-    background-color: white;
+    background-color: ${p => p.theme.card};
     border-radius: 20px;
     padding: 50px 60px;
     width: 100%;
     max-width: 420px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s;
 `;
 
 const Title = styled.h2`
@@ -63,7 +65,7 @@ const Title = styled.h2`
     font-size: 36px;
     text-align: center;
     margin: 0 0 30px;
-    color: black;
+    color: ${p => p.theme.text};
 `;
 
 const Form = styled.form`
@@ -81,18 +83,20 @@ const InputGroup = styled.div`
 const Label = styled.label`
     font-family: 'Pretendard', sans-serif;
     font-size: 14px;
-    color: #555;
+    color: ${p => p.theme.mutedText};
 `;
 
 const Input = styled.input`
     height: 46px;
-    border: 1px solid #ddd;
+    border: 1px solid ${p => p.theme.inputBorder};
     border-radius: 10px;
     padding: 0 14px;
     font-size: 15px;
     font-family: 'Pretendard', sans-serif;
     outline: none;
     transition: 0.2s;
+    background-color: ${p => p.theme.input};
+    color: ${p => p.theme.inputText};
 
     &:focus {
         border-color: #ffb6c1;
@@ -120,12 +124,12 @@ const SubmitButton = styled.button`
 const BackText = styled.p`
     font-family: 'Pretendard', sans-serif;
     font-size: 14px;
-    color: #aaa;
+    color: ${p => p.theme.mutedText};
     text-align: center;
     margin-top: 20px;
     cursor: pointer;
 
     &:hover {
-        color: #555;
+        color: ${p => p.theme.subText};
     }
 `;

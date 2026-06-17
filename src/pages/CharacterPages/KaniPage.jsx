@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
 
 // 섹션 컴포넌트
 import CharacterBanner from '../../components/CharacterSections/CharacterBanner';
@@ -14,7 +13,13 @@ import sceneImg1 from '../../assets/KaniBest.jpg';
 import momongaImg from '../../assets/momonga_card.png';
 
 function KaniPage() {
-    const navigate = useNavigate();
+
+    const PageWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    `;
 
     const bannerData = {
         bg: bannerImg,
@@ -59,7 +64,7 @@ function KaniPage() {
     ];
 
     const friendsData = [
-        { image: momongaImg, name: "모몽가", path: "/character/chiikawa" },
+        { image: momongaImg, name: "모몽가", path: "/character/momonga" },
     ];
 
     return (
@@ -75,9 +80,3 @@ function KaniPage() {
 
 export default KaniPage;
 
-const PageWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-`;

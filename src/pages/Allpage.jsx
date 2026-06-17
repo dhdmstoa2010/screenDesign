@@ -2,31 +2,13 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import characters from '../data/characters';
 
-function AllPage() {
-    return (
-        <PageWrapper>
-            <Title>캐릭터 소개</Title>
-            <SubTitle>치이카와 친구들을 만나보세요</SubTitle>
-
-            <Grid>
-                {characters.map((character) => (
-                    <Card key={character.id} to={character.path}>
-                        <CardImage src={character.image} alt={character.name} />
-                        <CardName>{character.name}</CardName>
-                        <CardDesc>{character.description}</CardDesc>
-                    </Card>
-                ))}
-            </Grid>
-        </PageWrapper>
-    );
-}
-
-export default AllPage;
 
 const PageWrapper = styled.div`
     display: flex;
+
     flex-direction: column;
     align-items: center;
+
     padding: 60px 40px 80px;
     width: 100%;
     box-sizing: border-box;
@@ -36,13 +18,15 @@ const Title = styled.h1`
     font-family: 'OngleipParkDahyeon';
     font-size: 48px;
     margin: 0 0 10px;
-    color: black;
+    color: ${p => p.theme.text};
 `;
 
 const SubTitle = styled.p`
     font-family: 'Pretendard', sans-serif;
     font-size: 16px;
+
     color: #888;
+
     margin: 0 0 50px;
 `;
 
@@ -63,8 +47,8 @@ const Grid = styled.div`
 
 const Card = styled(Link)`
     text-decoration: none;
-    color: black;
-    background-color: white;
+    color: ${p => p.theme.text};
+    background-color: ${p => p.theme.card};
     border-radius: 20px;
     padding: 24px;
     text-align: center;
@@ -93,8 +77,29 @@ const CardName = styled.h3`
 const CardDesc = styled.p`
     font-family: 'Pretendard', sans-serif;
     font-size: 14px;
-    color: #555;
+    color: ${p => p.theme.subText};
     line-height: 1.6;
     margin: 0;
     white-space: pre-line;
 `;
+
+
+function AllPage() {
+    return (
+        <PageWrapper>
+            <Title>캐릭터 소개</Title>
+
+            <Grid>
+                {characters.map((character) => ( // 
+                    <Card key={character.id} to={character.path}>
+                        <CardImage src={character.image} alt={character.name} />
+                        <CardName>{character.name}</CardName>
+                        <CardDesc>{character.description}</CardDesc>
+                    </Card>
+                ))}
+            </Grid>
+        </PageWrapper>
+    );
+}
+
+export default AllPage;
