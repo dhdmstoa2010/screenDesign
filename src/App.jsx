@@ -362,7 +362,7 @@ function MainPage() {
               <Slide key={i} src={img} $count={banners.length} />
             ))}
           </SlideTrack>
-          <BannerTitle><b>치이카와 친구들을 만나보세요!</b></BannerTitle>
+          <BannerTitle><b>치이카와 친구들 보러가기!</b></BannerTitle>
           <BannerButton onClick={() => navigate('/all')}>보러가기 ➔</BannerButton>
         </BannerImage>
       </Banner>

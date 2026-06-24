@@ -28,9 +28,7 @@ function GoodsPage() {
 
 
   // 전체 선택 시 전부 표시, 아니면 해당 카테고리만 필터링
-  const filtered = selected === '전체'
-    ? goodsList
-    : goodsList.filter((item) => item.category === selected);
+  const filtered = selected === '전체' ? goodsList : goodsList.filter((item) => item.category === selected);
 
   return (
     <Container>
