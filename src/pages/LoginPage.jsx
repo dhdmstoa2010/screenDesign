@@ -31,7 +31,7 @@ function LoginPage() {
                             type="text"
                             placeholder="아이디를 입력해 주세요"
                             value={id}
-                            onChange={(e) => setId(e.target.value)} // 입력값 변경시 상태 업데이트
+                            onChange={(e) => setId(e.target.value)}
                         />
                     </InputGroup>
 
