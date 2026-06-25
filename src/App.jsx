@@ -374,7 +374,6 @@ function MainPage() {
         </NavText>
       </Nav>
 
-      {/* characters 배열 순회하며 캐릭터 카드 렌더링 */}
       <CardList>
         {characters.map((character) => (
           <CharacterCard
