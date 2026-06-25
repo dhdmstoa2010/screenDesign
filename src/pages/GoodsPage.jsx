@@ -26,7 +26,6 @@ const categories = ['전체', '인형', '문구', '의류', '악세서리'];
 function GoodsPage() {
   const [selected, setSelected] = useState('전체');
 
-
   // 전체 선택 시 전부 표시, 아니면 해당 카테고리만 필터링
   const filtered = selected === '전체' ? goodsList : goodsList.filter((item) => item.category === selected);
 
