@@ -58,8 +58,7 @@ const GlobalStyle = createGlobalStyle`
     }
   `;
 
-// styled-components (레이아웃)
-
+// styled-components
 const Container = styled.div`
     display: flex;
     width: 100%;
