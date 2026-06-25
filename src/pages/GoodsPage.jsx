@@ -33,7 +33,6 @@ function GoodsPage() {
     <Container>
       <Title>굿즈</Title>
 
-
       {/* 카테고리 필터 버튼 목록 */}
       <List>
         {categories.map((cate) => (
