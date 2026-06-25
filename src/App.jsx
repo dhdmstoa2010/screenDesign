@@ -389,8 +389,6 @@ function MainPage() {
   );
 }
 
-// App 컴포넌트
-
 function App() {
   // 로컬스토리지에서 이전 테마 설정 불러오기 (기본값: 라이트)
   const [isDark, setIsDark] = useState(() => localStorage.getItem('theme') === 'dark');
