@@ -348,7 +348,7 @@ function MainPage() {
     const timer = setInterval(() => {
       setCurrent(view => (view + 1) % banners.length);
     }, 3000);
-    return () => clearInterval(timer); // 컴포넌트 언마운트 시 타이머 정리
+    return () => clearInterval(timer);
   }, []);
 
   return (
