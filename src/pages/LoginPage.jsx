@@ -11,7 +11,7 @@ function LoginPage() {
     const navigate = useNavigate();
 
     const handleLogin = (e) => {
-        e.preventDefault(); // 폼 제출 후 페이지 새로고침 방지용
+        e.preventDefault();
 
         if (id && password) {
             navigate('/');
