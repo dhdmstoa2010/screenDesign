@@ -58,8 +58,6 @@ function LoginPage() {
     );
 }
 
-
-
 export default LoginPage;
 
 const LoginContainer = styled.div`
