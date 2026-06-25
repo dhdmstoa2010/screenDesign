@@ -5,7 +5,7 @@ import PlainButton from '../components/PlainButton';
 
 
 function LoginPage() {
-    // 아이디,비번 state 관리
+    // state
     const [id, setId] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
