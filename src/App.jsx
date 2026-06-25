@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'; //
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import styled, { createGlobalStyle, keyframes, ThemeProvider } from 'styled-components';
 
