@@ -217,7 +217,7 @@ const BannerImage = styled.section`
     justify-content: flex-start;
     align-items: center;
     padding-top: 60px;
-    overflow: hidden;  /* 슬라이드 이미지가 둥근 모서리 밖으로 삐져나오지 않도록 */
+    overflow: hidden;
   `;
 
 // 슬라이드 전체 너비 = 이미지 개수 * 100%, translateX로 현재 슬라이드로 이동
