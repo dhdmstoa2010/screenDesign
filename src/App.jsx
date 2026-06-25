@@ -27,7 +27,7 @@ import SisaPage from './pages/CharacterPages/SisaPage';
 import KaniPage from './pages/CharacterPages/KaniPage';
 import PazamaPage from './pages/CharacterPages/PazamaPage';
 
-// 공통 컴포넌트
+// 공통
 import PlainButton from './components/PlainButton';
 import SearchBar from './components/SearchBar';
 import CharacterCard from './components/CharacterCard';
