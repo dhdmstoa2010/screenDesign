@@ -9,7 +9,7 @@ import chiikawabanner2 from "./assets/chiikawa_banner2.jpg";
 import chiikawabanner3 from './assets/chiikawa_banner1.jpg';
 import chiikawabanner4 from './assets/chiikawa_banner4.jpg';
 
-// 페이지 컴포넌트
+// 페이지
 import LoginPage from './pages/LoginPage';
 import GoodsPage from './pages/GoodsPage';
 import GoodsDetailPage from './pages/GoodsDetailPage';
