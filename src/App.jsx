@@ -341,7 +341,7 @@ const banners = [chiikawabanner, chiikawabanner2, chiikawabanner3, chiikawabanne
 
 function MainPage() {
   const navigate = useNavigate();
-  const [current, setCurrent] = useState(0); // 현재 슬라이드 인덱스
+  const [current, setCurrent] = useState(0);
 
   // 3초마다 다음 슬라이드로 자동 전환
   useEffect(() => {
