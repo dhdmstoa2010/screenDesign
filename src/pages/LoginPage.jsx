@@ -40,7 +40,7 @@ function LoginPage() {
                         <Input type="password"
                             placeholder="비밀번호를 입력해 주세요"
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)} /* 입력값 변경시 상태 업데이트 */
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                     </InputGroup>
 
