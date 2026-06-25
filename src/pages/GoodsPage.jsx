@@ -46,7 +46,6 @@ function GoodsPage() {
         ))}
       </List>
 
-
       {/* 필터링된 굿즈 카드 목록 */}
       <Grid>
         {filtered.map((item) => (
