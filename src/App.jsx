@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'; //
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import styled, { createGlobalStyle, keyframes, ThemeProvider } from 'styled-components';
 
@@ -9,7 +9,7 @@ import chiikawabanner2 from "./assets/chiikawa_banner2.jpg";
 import chiikawabanner3 from './assets/chiikawa_banner1.jpg';
 import chiikawabanner4 from './assets/chiikawa_banner4.jpg';
 
-// 페이지
+// 페이지 컴포넌트
 import LoginPage from './pages/LoginPage';
 import GoodsPage from './pages/GoodsPage';
 import GoodsDetailPage from './pages/GoodsDetailPage';
@@ -27,7 +27,7 @@ import SisaPage from './pages/CharacterPages/SisaPage';
 import KaniPage from './pages/CharacterPages/KaniPage';
 import PazamaPage from './pages/CharacterPages/PazamaPage';
 
-// 공통
+// 공통 컴포넌트
 import PlainButton from './components/PlainButton';
 import SearchBar from './components/SearchBar';
 import CharacterCard from './components/CharacterCard';
@@ -58,7 +58,8 @@ const GlobalStyle = createGlobalStyle`
     }
   `;
 
-// styled-components
+// styled-components (레이아웃)
+
 const Container = styled.div`
     display: flex;
     width: 100%;
@@ -217,7 +218,7 @@ const BannerImage = styled.section`
     justify-content: flex-start;
     align-items: center;
     padding-top: 60px;
-    overflow: hidden;
+    overflow: hidden;  /* 슬라이드 이미지가 둥근 모서리 밖으로 삐져나오지 않도록 */
   `;
 
 // 슬라이드 전체 너비 = 이미지 개수 * 100%, translateX로 현재 슬라이드로 이동
@@ -341,14 +342,14 @@ const banners = [chiikawabanner, chiikawabanner2, chiikawabanner3, chiikawabanne
 
 function MainPage() {
   const navigate = useNavigate();
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState(0); // 현재 슬라이드 인덱스
 
-  // 3초마다 다음 슬라이드로 자동 전환
+  // 자동 슬라이드 전환
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent(view => (view + 1) % banners.length);
     }, 3000);
-    return () => clearInterval(timer);
+    return () => clearInterval(timer); // 컴포넌트 언마운트 시 타이머 정리
   }, []);
 
   return (
@@ -388,6 +389,8 @@ function MainPage() {
     </Content>
   );
 }
+
+// App 컴포넌트
 
 function App() {
   // 로컬스토리지에서 이전 테마 설정 불러오기 (기본값: 라이트)
