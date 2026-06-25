@@ -33,7 +33,6 @@ function NewsPage() {
             <Title>소식</Title>
             <SubTitle>치이카와의 최신 소식을 확인해보세요</SubTitle>
 
-            {/* 소식 목록 순회하며 카드 렌더링 */}
             <NewsList>
                 {newsList.map((news) => (
                     <NewsCard key={news.id} onClick={() => news.link && window.open(news.link, '_blank')}>
