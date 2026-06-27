@@ -22,9 +22,7 @@ const Title = styled.h1`
 const SubTitle = styled.p`
     font-family: 'Pretendard', sans-serif;
     font-size: 16px;
-
     color: #888;
-
     margin: 0 0 50px;
 `;
 
