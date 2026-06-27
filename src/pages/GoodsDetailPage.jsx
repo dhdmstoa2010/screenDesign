@@ -3,9 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { goodsList } from './GoodsPage';
 
 function GoodsDetailPage() {
-    const { id } = useParams(); // URL에서 굿즈 id 추출
+    const { id } = useParams();
     const navigate = useNavigate();
-    const item = goodsList.find((g) => g.id === Number(id)); // id로 해당 굿즈 데이터 찾기
+    const item = goodsList.find((g) => g.id === Number(id));
 
     return (
         <Container>
