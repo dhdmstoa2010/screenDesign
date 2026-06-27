@@ -5,9 +5,9 @@ function FindPasswordPage() {
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
-        e.preventDefault(); // 폼 제출시 페이지 새로고침 방지용
+        e.preventDefault();
         alert('입력하신 이메일로 비밀번호 재설정 링크를 보내드렸습니다.');
-        navigate('/login'); // 알람 확인 후 로그인 페이지로 이동
+        navigate('/login');
     };
 
     return (
