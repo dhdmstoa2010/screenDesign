@@ -5,7 +5,6 @@ import PlainButton from '../components/PlainButton';
 
 
 function LoginPage() {
-    // state
     const [id, setId] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
