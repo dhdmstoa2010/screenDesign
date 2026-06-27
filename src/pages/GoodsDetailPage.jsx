@@ -131,4 +131,3 @@ const Label = styled.span`
 const Value = styled.span`
     color: ${p => p.theme.subText};
 `;
-`   `
