@@ -78,7 +78,6 @@ const CardDesc = styled.p`
     white-space: pre-line;
 `;
 
-
 function AllPage() {
     return (
         <PageWrapper>
