@@ -90,7 +90,7 @@ function AllPage() {
             <Title>캐릭터 소개</Title>
 
             <Grid>
-                {characters.map((character) => ( // 
+                {characters.map((character) => (
                     <Card key={character.id} to={character.path}>
                         <CardImage src={character.image} alt={character.name} />
                         <CardName>{character.name}</CardName>
