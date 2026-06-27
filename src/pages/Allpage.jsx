@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import characters from '../data/characters';
 
-
 const PageWrapper = styled.div`
     display: flex;
     flex-direction: column;
