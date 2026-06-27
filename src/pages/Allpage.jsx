@@ -5,10 +5,8 @@ import characters from '../data/characters';
 
 const PageWrapper = styled.div`
     display: flex;
-
     flex-direction: column;
     align-items: center;
-
     padding: 60px 40px 80px;
     width: 100%;
     box-sizing: border-box;
