@@ -84,7 +84,7 @@ function ChiikawaPage() {
 
     return (
         <PageWrapper>
-            <CharacterBanner   {...bannerData} /> {/* 데이터가 많기 때문에 ... 으로 줄임 */}
+            <CharacterBanner {...bannerData} />
             <CharacterProfile  {...profileData} />
             <CharacterFeatures items={featuresData} />
             <CharacterScenes scenes={scenesData} />
