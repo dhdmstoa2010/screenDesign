@@ -78,8 +78,8 @@ function HachiwarePage() {
 
     return (
         <PageWrapper>
-            <CharacterBanner   {...bannerData} />
-            <CharacterProfile  {...profileData} />
+            <CharacterBanner {...bannerData} />
+            <CharacterProfile {...profileData} />
             <CharacterFeatures items={featuresData} />
             <CharacterScenes scenes={scenesData} />
             <CharacterFriends friends={friendsData} />
