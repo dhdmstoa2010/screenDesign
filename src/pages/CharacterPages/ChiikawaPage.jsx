@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-// 섹션 컴포넌트
 import CharacterBanner from '../../components/CharacterSections/CharacterBanner';
 import CharacterProfile from '../../components/CharacterSections/CharacterProfile';
 import CharacterFeatures from '../../components/CharacterSections/CharacterFeatures';
