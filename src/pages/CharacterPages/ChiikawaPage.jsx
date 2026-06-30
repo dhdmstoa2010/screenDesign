@@ -93,4 +93,3 @@ function ChiikawaPage() {
 }
 
 export default ChiikawaPage;
-
