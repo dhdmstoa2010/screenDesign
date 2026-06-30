@@ -16,7 +16,6 @@ import usagiImg from '../../assets/usagi_card.png';
 import rotcoImg from '../../assets/rotco_card.png';
 
 function ChiikawaPage() {
-
     const PageWrapper = styled.div`
     display: flex;
     flex-direction: column;
