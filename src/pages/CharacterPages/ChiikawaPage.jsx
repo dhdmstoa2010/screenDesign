@@ -84,7 +84,7 @@ function ChiikawaPage() {
     return (
         <PageWrapper>
             <CharacterBanner {...bannerData} />
-            <CharacterProfile  {...profileData} />
+            <CharacterProfile {...profileData} />
             <CharacterFeatures items={featuresData} />
             <CharacterScenes scenes={scenesData} />
             <CharacterFriends friends={friendsData} />
