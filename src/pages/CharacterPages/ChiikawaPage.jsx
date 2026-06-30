@@ -6,7 +6,6 @@ import CharacterFeatures from '../../components/CharacterSections/CharacterFeatu
 import CharacterScenes from '../../components/CharacterSections/CharacterScenes';
 import CharacterFriends from '../../components/CharacterSections/CharacterFriends';
 
-// 이미지
 import bannerImg from '../../assets/ChiikawaPageImage.jpg';
 import profileImg from '../../assets/chiikawa_card.png';
 import sceneImg1 from '../../assets/ChiikawaBest.jpg';
